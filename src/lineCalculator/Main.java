@@ -1,5 +1,6 @@
 package lineCalculator;
 
+import javax.xml.stream.events.Characters;
 import java.util.Scanner; // importera Scanner klassen
 // Skriv ett program som läser in text
 // ifrån kommandoraden rad för rad tills
@@ -11,41 +12,34 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Counter myCounter = new Counter();
         Scanner Scan = new Scanner(System.in);
         // Skriver ut ett välkomnande
         System.out.println("Välkommen till min ordräknare, kör hårt och börja skriva");
+
         String text = Scan.nextLine();
-        Counter.endWord(text);
+        myCounter.getendWord();
+        myCounter.addCharacters(text);
+
+        while (!myCounter.getendWord()) {
 
 
-        while (Counter.endWord()) {
-            //Programmet avslutas när användaren skrivit ordet "Stop"
-
-            // Skriver in antal rader
-
-            System.out.println(Counter.addLines(text));
-
-            // Skriver in antal tecken
-
-            System.out.println(Counter.addCharacters(text));
-
-            // Fler rader kan skrivas in i programmet
-
+            myCounter.addLines();
             text = Scan.nextLine();
-
-            Counter.endWord(text);
-
+            myCounter.addCharacters(text);
+            myCounter.getendWord();
         }
 
-        // Skriver ut antalet rader
-        // System.out.println("Antal rader" + Counter.//getNumberofLines());
 
-        // Skriver ut antalet tecken
-        //System.out.println("Antal tecken" + Counter.getNumberofCharacters());
+        System.out.println(myCounter.getNumberofCharacters());
+        System.out.println(myCounter.getNumberofLines());
 
 
-    }
-}
+    } }
+
+
+
+
 
 
 

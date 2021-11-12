@@ -39,11 +39,15 @@ public class Testfall{
         Counter myCounter = new Counter();
 
         //Act
+        myCounter.addLines();
+        myCounter.addLines();
+        myCounter.addLines();
+        myCounter.addLines();
         int actual = myCounter.getNumberofLines();
 
         //Assert
 
-        int expected = 1;
+        int expected = 4;
 
         assertEquals(expected, actual);
     }
@@ -58,10 +62,37 @@ public class Testfall{
         int actual = myCounter.getNumberofCharacters();
 
         //Assert
-        int expected = 3;
+        int expected = 10;
 
         assertEquals(expected, actual);
     }
+    @Test
+    public void testendWord(){
+        //Arrange
+        Counter myCounter = new Counter();
+
+        //Act
+        myCounter.addCharacters("Stop");
+        boolean actual = myCounter.getendWord();
+
+        //Assert
+        boolean expected = true;
+
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testnotendWord(){
+        //Arrange
+        Counter myCounter = new Counter();
+
+        //Act
+        myCounter.addCharacters("Hallå");
+        boolean actual = myCounter.getendWord();
+
+        //Assert
+        boolean expected = false;
+
+        assertEquals(expected, actual); }
 
 
 }
