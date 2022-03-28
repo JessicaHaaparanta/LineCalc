@@ -2,6 +2,7 @@ package Morsekod;
 
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.LowerCase;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -105,10 +106,14 @@ public class HelloMorse {
 
         String code = Morsecode.get(letter);
 
-        if (code == null); {
-                code = "It dosen´t exit";
+            {  if (code==null)
+            code = new String();
+
+
+                return code;
+
             }
-            return code;
+
 
         }
 
